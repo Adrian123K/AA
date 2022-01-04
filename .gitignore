@@ -11,6 +11,10 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
+
+.gitignore
 env/
 
 .env
+.idea/
+__pycache__/
