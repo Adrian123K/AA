@@ -15,9 +15,11 @@
             </div>
         </form>
 
+        {% if hello_world_output %}
         <h1>
-            {{ text }}
+            {{ hello_world_output.text }}
         </h1>
+        {% endif %}
 
     </div>
 {% endblock %}
