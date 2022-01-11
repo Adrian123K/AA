@@ -6,6 +6,10 @@ from django.http import HttpResponse
 def hello_world(request):
     
     if request.method == "POST":
-        return render(request, 'accountapp/hello_world.html', context={"text":"POST METHOD"})
+        
+        temp = request.POST.get('hello_world_input')
+        
+        
+        return render(request, 'accountapp/hello_world.html', context={"text":temp})
     else:
         return render(request, 'accountapp/hello_world.html', context={"text":"GET METHOD"})
