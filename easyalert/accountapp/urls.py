@@ -1,8 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from accountapp.views import hello_world
 
-# appName = 'accountapp'
+app_name = 'accountapp'
 
 
 urlpatterns = [
