@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
 
-from accountapp.views import AccountCreateView, hello_world, AccountDetailView
+from accountapp.views import AccountCreateView, hello_world, AccountDetailView, AccountUpdateView
 
 
 app_name = 'accountapp'
@@ -19,4 +19,5 @@ urlpatterns = [
     
     # 사용자 my page 구현
     path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'), # userid값을 입력해야 원하는 상세페이지가 출력
+    path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),
 ]
