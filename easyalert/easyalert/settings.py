@@ -147,3 +147,10 @@ from django.urls import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+
+MEDIA_URL = '/media/'
+# 127.0.0.1:8000/media.test.jpg
+
+# media파일을 올렸을 때 경로 지정
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
