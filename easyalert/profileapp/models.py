@@ -13,9 +13,3 @@ class Profile(models.Model):
     message = models.CharField(max_length=144, null=True)
     
     
-    
-    
-    
-    
-    
-    
