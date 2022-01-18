@@ -14,4 +14,4 @@ class Comment(models.Model):
     content = models.TextField(null=False)
     
     # 자동 생성하고
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateField(auto_now_add=True, null=True)
