@@ -1,6 +1,7 @@
 from django.urls import path
 
 from projectapp.views import ProjectCreateView, ProjectDetailView, ProjectListView
+
 app_name = 'projectapp'
 
 urlpatterns = [

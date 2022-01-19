@@ -19,3 +19,22 @@
         font-size: 13px;
     }
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.AA_header_nav {
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+.AA_header_navbar {
+    margin: 1rem 0;    
+}
