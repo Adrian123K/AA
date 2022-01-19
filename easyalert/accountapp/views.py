@@ -13,7 +13,6 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import HelloWorld
 from articleapp.models import Article
 
 has_ownership = [account_ownership_required, login_required]
@@ -21,27 +20,10 @@ has_ownership = [account_ownership_required, login_required]
 
 # Create your views here.
 
-@login_required
-def hello_world(request):
-    
-    if request.method == "POST":
-        
-        temp = request.POST.get('hello_world_input')
-        
-        new_hello_world = HelloWorld()
-        new_hello_world.text = temp
-        new_hello_world.save() # DB에 저장
-        
-        return HttpResponseRedirect(reverse('accountapp:hello_world')) 
-    else:
-        hello_world_list = HelloWorld.objects.all()
-        return render(request, 'accountapp/hello_world.html', context={"hello_world_list":hello_world_list})
-    
-
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello_world') # login 성공했을 때 보낼 위치, reverse 사용 불가, reverse_lazy는 클래스에서 reverse는 함수에서 사용
+    success_url = reverse_lazy('accountapp:home') # login 성공했을 때 보낼 위치, reverse 사용 불가, reverse_lazy는 클래스에서 reverse는 함수에서 사용
     template_name = 'accountapp/create.html'
 
 
@@ -63,7 +45,7 @@ class AccountUpdateView(UpdateView):
     model = User
     context_object_name = 'target_user'
     form_class = AccountUpdateForm
-    success_url = reverse_lazy('accountapp:hello_world')
+    success_url = reverse_lazy('accountapp:home')
     template_name = 'accountapp/update.html'
     
     
