@@ -4,6 +4,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, ListView
 from django.views.generic.list import MultipleObjectMixin
 from articleapp.models import Article
+from subscribeapp.models import Subscription
 
 from projectapp.forms import ProjectCreationForm
 from projectapp.models import Project
@@ -30,8 +31,17 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
     
     # 필터링 메소드 생성
     def get_context_data(self, **kwargs):
+        project = self.object
+        user = self.request.user
+        
+        # 구독 확인
+        if user.is_authenticated:
+            subscription = Subscription.objects.filter(user=user, project=project)
+        
         object_list = Article.objects.filter(project=self.get_object()) # 현재 object와 같은 project 필터링한 list
-        return super(ProjectDetailView, self).get_context_data(object_list=object_list, **kwargs) # 필터링한 object_list를 되돌려줌
+        
+        return super(ProjectDetailView, self).get_context_data(object_list=object_list, 
+                                                               subscription=subscription, **kwargs) # 필터링한 object_list를 되돌려줌
     
     
     
