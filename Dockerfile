@@ -4,7 +4,7 @@ WORKDIR /home/
 
 RUN git clone https://github.com/Adrian123K/AA.git
 
-WORKDIR /home/AA/
+WORKDIR /home/AA/easyalert/
 
 RUN pip install -r requirements.txt
 
