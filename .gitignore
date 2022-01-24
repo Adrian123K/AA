@@ -24,3 +24,5 @@ __pycache__/
 
 Dockerfile
 nginx.conf
+easyalert/easyalert/settings/deploy.py
+easyalert/easyalert/settings/local.py
